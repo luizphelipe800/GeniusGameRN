@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import playSound from '../utils/playSound'
 
 const HomeScreen = ({ navigation }) => {
+
     return (
         <View style={style.container}>
             <Text style={style.text}>GENIUS GAME</Text>

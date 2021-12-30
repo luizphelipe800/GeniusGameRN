@@ -3,7 +3,9 @@ import { View, Text, StyleSheet } from 'react-native'
 
 import ButtonColor from './ButtonColor'
 import sleep from '../utils/sleep'
+import playSound from '../utils/playSound'
 
+const SOUNDS = ['sound01.mp3', 'sound03.mp3', 'sound02.mp3', 'sound04.mp3']
 let playerColorIndex = 0
 let canPlay = false
 
@@ -23,7 +25,8 @@ const GameScreen = ({ navigation }) => {
         blink()
     }
 
-    function handleOnClick(colorId){
+    async function handleOnClick(colorId){
+        playSound(SOUNDS[colorId])
         if(canPlay){
             if(geniusColors[playerColorIndex] == colorId){
                 playerColorIndex += 1
@@ -31,8 +34,10 @@ const GameScreen = ({ navigation }) => {
                 if(playerColorIndex >= geniusColors.length - 1){
                     playerColorIndex = 0
                     setPlayerPoints(points => points += 1)
-                    canPlay = false
-                    geniusPlay()
+                    setTimeout(() => {
+                        canPlay = false
+                        geniusPlay()
+                    }, 1000)
                 }
             }else{
                 navigation.navigate('GameOver')
@@ -48,6 +53,7 @@ const GameScreen = ({ navigation }) => {
 
             await sleep(500)
             setActiveColor(colors => ({ ...colors, [currColor]: true }))
+            playSound(SOUNDS[geniusColors[idx]])
             
             await sleep(500)
             setActiveColor(colors => ({ ...colors, [currColor]: false }))
