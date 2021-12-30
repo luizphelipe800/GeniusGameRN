@@ -14,6 +14,10 @@ target 'GeniusGameRN' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
   target 'GeniusGameRNTests' do
     inherit! :complete
     # Pods for testing
