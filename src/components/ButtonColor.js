@@ -1,21 +1,22 @@
-import React from 'react'
-import { TouchableOpacity, StyleSheet, View } from 'react-native'
+import React from 'react';
+import {TouchableOpacity, StyleSheet} from 'react-native';
 
-const ButtonColor = ({ id, color, isActive, onClick, canPlay }) => {
-    return (
-        <TouchableOpacity 
-            style={{ flex: 1, backgroundColor: isActive ? '#000000' : color, borderRadius: 150 }}
-            onPressIn={() => onClick(id)}
-        >
-            <View  />
-        </TouchableOpacity>
-    )
-}
+const ButtonColor = ({id, color, onClick}) => {
+  return (
+    <TouchableOpacity
+      style={[styles.button, {backgroundColor: color}]}
+      onPressIn={() => onClick(id)}
+    />
+  );
+};
 
-export default ButtonColor
+export default ButtonColor;
 
-const style = StyleSheet.create({
-    button: {
-        
-    }
-})
+const styles = StyleSheet.create({
+  button: {
+    width: 150,
+    height: 150,
+    margin: 8,
+    borderRadius: 8,
+  },
+});

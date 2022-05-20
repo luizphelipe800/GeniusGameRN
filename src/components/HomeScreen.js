@@ -1,36 +1,43 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import playSound from '../utils/playSound'
+import React from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
+  return (
+    <View style={style.container}>
+      <Text style={style.h1}>GENIUS GAME</Text>
+      <TouchableOpacity
+        style={style.button}
+        onPress={() => navigation.navigate('Game')}>
+        <Text style={style.buttonText}>JOGAR</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-    return (
-        <View style={style.container}>
-            <Text style={style.text}>GENIUS GAME</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Game')}>
-                <Text style={style.button}>PLAY</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
-
-export default HomeScreen
+export default HomeScreen;
 
 const style = StyleSheet.create({
-    button: {
-        backgroundColor: '#ff314b',
-        paddingHorizontal: 64,
-        paddingVertical: 32,
-        borderRadius: 24,
-        color: '#ffffff'
-    },
-    text: {
-        fontSize: 32,
-        marginBottom: 12
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+  button: {
+    width: '50%',
+    backgroundColor: '#ff314b',
+    paddingVertical: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#ffffff',
+  },
+  h1: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#232323',
+    marginBottom: 24,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
